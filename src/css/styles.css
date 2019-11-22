@@ -35,9 +35,18 @@ input {
   margin: 20px auto;
 }
 
-.btn-block, input {
+#search, input {
   margin: 20px auto;
   max-width: 500px;
+}
+
+.load {
+  padding: 20%;
+  text-align: center;
+}
+
+#restart {
+  display: none;
 }
 
 

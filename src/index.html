@@ -11,16 +11,17 @@
     </div>
     <div class="card bg-dark user-input">
       <form id="search-form">
-        <input id="" class="form-control form-control-lg" type="text" placeholder="Your Medical Issue">
-        <input id="" class="form-control form-control-lg" type="text" pattern="[0-9]*" placeholder="Your Zip Code">
-        <input id="" class="form-control form-control-lg" type="text" placeholder="Doctor's Full Name">
-        <input id="" class="form-control form-control-lg" type="text" placeholder="Doctor's First Name">
-        <input id="" class="form-control form-control-lg" type="text" placeholder="Doctor's Last Name">
+        <input id="issue" class="form-control form-control-lg" type="text" placeholder="Your Medical Issue">
+        <input id="zip" class="form-control form-control-lg" type="text" pattern="[0-9]*" placeholder="Your Zip Code (5 digit)">
+        <input id="fullName" class="form-control form-control-lg" type="text" placeholder="Doctor's Full Name">
+        <input id="firstName" class="form-control form-control-lg" type="text" placeholder="Doctor's First Name">
+        <input id="lastName" class="form-control form-control-lg" type="text" placeholder="Doctor's Last Name">
         <button id="search" type="submit" name="search" class="btn btn-primary btn-lg btn-block">SEARCH</button>
       </form>
-
     </div>
-
+    <div class="search-again">
+      <button id="restart" type="submit" name="search" class="btn btn-primary btn-lg btn-block">SEARCH AGAIN</button>
+    </div>
 
     <div class="doc-cards">
 
