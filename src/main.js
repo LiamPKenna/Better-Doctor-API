@@ -40,6 +40,11 @@ $(document).ready(function(){
       });
   });
 
+  $('#restart').click(() => {
+    $('#restart').hide();
+    $('.doc-cards').hide();
+    $('.user-input').fadeIn();
+  });
 
 
 
