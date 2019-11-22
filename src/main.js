@@ -12,14 +12,31 @@ import { Query } from './js/query.js';
 $(document).ready(function(){
 
   const doctorSearch = new DoctorSearch();
-  const query = new Query('','','','','',97214);
 
-  $('#search').click(() => {
-    doctorSearch.getDoctorByQuery(query)
+  const verifyZip = (zipInput) => {
+    return (zipInput.length === 5) ? zipInput : '';
+  };
+
+  const getUserInputQuery = () => {
+    const issueInput = $('#issue').val();
+    const zipInput = verifyZip($('#zip').val());
+    const fullNameInput = $('#fullName').val();
+    const firstInput = $('#firstName').val();
+    const lastInput = $('#lastName').val();
+    return new Query(issueInput, fullNameInput, firstInput, lastInput, zipInput);
+  };
+
+  $('#search-form').submit((event) => {
+    event.preventDefault();
+    const thisQuery = getUserInputQuery();
+    $('.user-input').hide();
+    const loadMessage = '<div class="load"><h2>Loading . . .</h2></div>';
+    $('.doc-cards').html(loadMessage);
+    $('#restart').fadeIn();
+    $('.doc-cards').fadeIn();
+    doctorSearch.getDoctorByQuery(thisQuery)
       .then((docHtml) => {
-        console.log(docHtml);
-        $('.doc-cards').append(docHtml);
-        $('.doc-cards').append('<h1>test</h1>');
+        $('.doc-cards').html(docHtml);
       });
   });
 
