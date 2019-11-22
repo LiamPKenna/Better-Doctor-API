@@ -13,7 +13,16 @@ $(document).ready(function(){
 
   const doctorSearch = new DoctorSearch();
   const query = new Query('','','','','',97214);
-  doctorSearch.getDoctorByQuery(query);
+
+  $('#search').click(() => {
+    doctorSearch.getDoctorByQuery(query)
+      .then((docHtml) => {
+        console.log(docHtml);
+        $('.doc-cards').append(docHtml);
+        $('.doc-cards').append('<h1>test</h1>');
+      });
+  });
+
 
 
 
