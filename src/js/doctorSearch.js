@@ -12,7 +12,7 @@ export class DoctorSearch {
     const location = (!query.zip) ?
       [45.515,-122.643] :
       await this.apiRequest.getLocation(query.zip);
-    const url = `https://api.betterdoctor.com/2016-03-01/doctors?${query.docName}${query.docFirst}${query.docLast}${query.query}location=${location[0]}%2C%20${location[1]}%2C100&user_location=${location[0]}%2C%20${location[1]}&${query.docGender}skip=0&limit=50&user_key=${process.env.API_KEY}`;
+    const url = `https://api.betterdoctor.com/2016-03-01/doctors?${query.docName}${query.docFirst}${query.docLast}${query.query}location=${location[0]}%2C%20${location[1]}%2C100&user_location=${location[0]}%2C%20${location[1]}&${query.docGender}sort=distance-asc&skip=0&limit=50&user_key=${process.env.API_KEY}`;
     return this.apiRequest.getApiResponse(url)
       .then((response) => {
         const doctors = response.data;
