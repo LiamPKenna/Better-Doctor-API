@@ -41,6 +41,21 @@ export class DoctorSearch {
         }
       });
   }
+
+  async getSpecialties() {
+    const url = `https://api.betterdoctor.com/2016-03-01/specialties?user_key=${process.env.API_KEY}`;
+    return this.apiRequest.getApiResponse(url)
+      .then((response) => {
+        if (!response.data) return false;
+        const specialties = response.data;
+        let result = '';
+        specialties.forEach(specialty => {
+          const thisInput = this.templateTool.makeSpecInput(specialty);
+          result += thisInput;
+        });
+        return result;
+      })
+  }
 }
 
 // first name, last name, address, phone number, website and whether or not the doctor is accepting new patients

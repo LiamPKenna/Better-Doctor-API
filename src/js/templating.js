@@ -27,4 +27,12 @@ export class TemplateTool {
     `;
     return result;
   }
+
+  makeSpecInput(specialty) {
+    return `
+      <option value="${specialty.uid}">
+        ${specialty.name}
+      </option>
+    `;
+  }
 }
