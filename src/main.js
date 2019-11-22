@@ -6,13 +6,14 @@ import './css/styles.css';
 
 // MAIN LOGIC
 import { DoctorSearch } from './js/doctor.js';
+import { Query } from './js/query.js';
 
 // USER INTERFACE
 $(document).ready(function(){
 
   const doctorSearch = new DoctorSearch();
-  console.log(`HELLO!`);
-  console.log(process.env.API_KEY);
+  const query = new Query('headache','','','','');
+  doctorSearch.getDoctorByQuery(query);
 
 
 
