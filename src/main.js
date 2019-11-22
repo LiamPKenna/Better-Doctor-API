@@ -5,7 +5,7 @@ import './css/bootstrap.min.css';
 import './css/styles.css';
 
 // MAIN LOGIC
-import { DoctorSearch } from './js/doctor.js';
+import { DoctorSearch } from './js/doctorSearch.js';
 import { Query } from './js/query.js';
 
 // USER INTERFACE
