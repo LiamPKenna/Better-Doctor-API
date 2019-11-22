@@ -20,4 +20,15 @@ export class ApiRequest {
 
     return apiResponse;
   }
+
+  getLocation(zip) {
+    return fetch(`https://www.zipcodeapi.com/rest/${process.env.ZIP_KEY}/info.json/${zip}/degrees`)
+      .then(response => {
+        return response.json();
+      })
+      .then(json => {
+        return [parseFloat(json.lat).toFixed(3),parseFloat(json.lng).toFixed(3)];
+      })
+  }
+
 }

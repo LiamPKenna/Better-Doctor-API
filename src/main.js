@@ -12,7 +12,7 @@ import { Query } from './js/query.js';
 $(document).ready(function(){
 
   const doctorSearch = new DoctorSearch();
-  const query = new Query('headache','','','','');
+  const query = new Query('headache','','','','',97754);
   doctorSearch.getDoctorByQuery(query);
 
 
