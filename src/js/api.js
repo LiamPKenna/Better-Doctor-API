@@ -24,14 +24,12 @@ export class ApiRequest {
   getLocation(zip) {
     return fetch(`https://www.zipcodeapi.com/rest/${process.env.ZIP_KEY}/info.json/${zip}/degrees`)
       .then(response => {
-        if (!response.ok) throw Error(response.statusText);
-        return response;
-      })
-      .then(response => {
         return response.json();
       })
       .then(json => {
-        return [parseFloat(json.lat).toFixed(3),parseFloat(json.lng).toFixed(3)];
+        return (json.lat) ?
+          [parseFloat(json.lat).toFixed(3),parseFloat(json.lng).toFixed(3)] :
+          false;
       });
   }
 
