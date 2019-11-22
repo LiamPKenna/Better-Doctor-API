@@ -1,9 +1,11 @@
 import { ApiRequest } from './api.js';
 import { Doctor } from './doctor.js';
+import { TemplateTool } from './templating.js';
 
 export class DoctorSearch {
   constructor() {
     this.apiRequest = new ApiRequest();
+    this.templateTool = new TemplateTool();
   }
 
   async getDoctorByQuery(query) {
@@ -11,18 +13,17 @@ export class DoctorSearch {
       [45.515,-122.643] :
       await this.apiRequest.getLocation(query.zip);
     const url = `https://api.betterdoctor.com/2016-03-01/doctors?${query.docName}${query.docFirst}${query.docLast}${query.query}location=${location[0]}%2C%20${location[1]}%2C100&user_location=${location[0]}%2C%20${location[1]}&${query.docGender}skip=0&limit=50&user_key=${process.env.API_KEY}`;
-    console.log(url);
-    this.apiRequest.getApiResponse(url)
+    return this.apiRequest.getApiResponse(url)
       .then((response) => {
         const doctors = response.data;
         if (doctors.length > 0) {
           const docDetails = [];
           doctors.forEach((doc) => {
             const doctor = new Doctor(doc);
-            docDetails.push(doctor);
+            const docCard = this.templateTool.makeDoctorCard(doctor);
+            docDetails.push(docCard);
           });
-          console.log(docDetails);
-          return docDetails;
+          return docDetails.join('');
         } else {
           return 'No doctors were found that met your criteria. Sorry!';
         }
