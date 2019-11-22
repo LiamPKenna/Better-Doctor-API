@@ -22,6 +22,11 @@ _{DETAILS}_
 ## Setup/Installation Requirements
 
 * _Clone to local machine and open index.html in the browser_
+* _Create .env file in root directory_
+* _Get a free API from https://www.zipcodeapi.com and add to .env as ZIP_KEY={your key}_
+* _Get a free API from https://developer.betterdoctor.com and add to .env as API_KEY={your key}_
+* _Run "npm i" to install dependencies_
+* _Run "npm run start" to begin dev server and load site_
 * _This site can be viewed in it's current form at https://LiamPKenna.github.io/wk6_
 
 
