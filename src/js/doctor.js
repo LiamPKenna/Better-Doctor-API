@@ -26,7 +26,7 @@ export class Doctor {
     for (let i = 0; i < 3; i++) {
       resultArray.push(numArray.shift());
     }
-    resultArray.push(')');
+    resultArray.push(') ');
     for (let i = 0; i < 3; i++) {
       resultArray.push(numArray.shift());
     }
