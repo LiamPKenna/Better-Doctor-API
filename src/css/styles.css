@@ -27,18 +27,27 @@
 
 .header {
   text-align: center;
+  margin: 0;
 }
 
 input {
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 20px auto;
+}
+
+.btn-block, input {
+  margin: 20px auto;
+  max-width: 500px;
 }
 
 
 @media (min-width: 470px) {
   .dr-card {
     grid-template-columns: 3fr 2fr;
+  }
+
+  .user-input {
+    padding: 20px 15%;
   }
 
 
