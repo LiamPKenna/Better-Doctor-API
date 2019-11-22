@@ -40,7 +40,7 @@ input {
   max-width: 500px;
 }
 
-.load {
+.load, .error {
   padding: 20%;
   text-align: center;
 }
