@@ -19,7 +19,7 @@ export class DoctorSearch {
         </div>
       `;
     }
-    const url = `https://api.betterdoctor.com/2016-03-01/doctors?${query.docName}${query.docFirst}${query.docLast}${query.query}location=${location[0]}%2C%20${location[1]}%2C100&user_location=${location[0]}%2C%20${location[1]}&${query.docGender}sort=distance-asc&skip=0&limit=50&user_key=${process.env.API_KEY}`;
+    const url = `https://api.betterdoctor.com/2016-03-01/doctors?${query.docName}${query.docFirst}${query.docLast}${query.query}${query.specialty}location=${location[0]}%2C%20${location[1]}%2C100&user_location=${location[0]}%2C%20${location[1]}&${query.docGender}sort=distance-asc&skip=0&limit=50&user_key=${process.env.API_KEY}`;
     return this.apiRequest.getApiResponse(url)
       .then((response) => {
         const doctors = response.data;
@@ -54,7 +54,7 @@ export class DoctorSearch {
           result += thisInput;
         });
         return result;
-      })
+      });
   }
 }
 

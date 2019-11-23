@@ -11,19 +11,27 @@ import { Query } from './js/query.js';
 // USER INTERFACE
 $(document).ready(function(){
 
-  const doctorSearch = new DoctorSearch();
+  const addSpecialties = async () => {
+    const specialtyInputs = await doctorSearch.getSpecialties();
+    if (specialtyInputs) {
+      $('#specialty').append(specialtyInputs);
+    } else {
+      $('.specialties').hide();
+    }
+  };
 
   const verifyZip = (zipInput) => {
     return (zipInput.length === 5) ? zipInput : '';
   };
 
   const getUserInputQuery = () => {
+    const specialtyInput = $('#specialty').val();
     const issueInput = $('#issue').val();
     const zipInput = verifyZip($('#zip').val());
     const fullNameInput = $('#fullName').val();
     const firstInput = $('#firstName').val();
     const lastInput = $('#lastName').val();
-    return new Query(issueInput, fullNameInput, firstInput, lastInput, zipInput);
+    return new Query(issueInput, fullNameInput, firstInput, lastInput, zipInput, specialtyInput);
   };
 
   $('#search-form').submit((event) => {
@@ -46,6 +54,7 @@ $(document).ready(function(){
     $('.user-input').fadeIn();
   });
 
-
+  const doctorSearch = new DoctorSearch();
+  addSpecialties();
 
 });
