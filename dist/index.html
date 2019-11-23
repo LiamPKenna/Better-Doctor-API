@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="jumbotron header">
+      <h1>Doctor Search</h1>
+    </div>
+    <div class="card bg-dark user-input">
+      <div class="card bg-light directions">
+        <h5>Please enter any information you would like included in your search:</h5>
+      </div>
+      <form id="search-form">
+        <div class="form-group specialties">
+          <select class="form-control" id="specialty">
+            <option value="">Choose Specialty</option>
+          </select>
+        </div>
+        <input id="issue" class="form-control form-control-lg" type="text" placeholder="Your Medical Issue">
+        <input id="zip" class="form-control form-control-lg" type="text" pattern="[0-9]*" placeholder="Your Zip Code (5 digit)">
+        <input id="fullName" class="form-control form-control-lg" type="text" placeholder="Doctor's Full Name">
+        <input id="firstName" class="form-control form-control-lg" type="text" placeholder="Doctor's First Name">
+        <input id="lastName" class="form-control form-control-lg" type="text" placeholder="Doctor's Last Name">
+        <button id="search" type="submit" name="search" class="btn btn-primary btn-lg btn-block">SEARCH</button>
+      </form>
+    </div>
+    <div class="search-again">
+      <button id="restart" type="submit" name="search" class="btn btn-primary btn-lg btn-block">SEARCH AGAIN</button>
+    </div>
+
+    <div class="doc-cards">
+
+    </div>
+
+    <div class="this-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="ageModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content age-modal">
+          <h3>STUFF HERE!</h3>
+        </div>
+      </div>
+    </div>
+  <script type="text/javascript" src="bundle.js"></script></body>
+</html>
