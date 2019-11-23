@@ -48,5 +48,3 @@ export class DoctorSearch {
       });
   }
 }
-
-// first name, last name, address, phone number, website and whether or not the doctor is accepting new patients
