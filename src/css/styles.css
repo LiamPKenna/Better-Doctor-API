@@ -30,15 +30,22 @@
   margin: 0;
 }
 
+.directions, #search, input, .specialties {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.directions {
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
 input {
   text-align: center;
   margin: 20px auto;
 }
 
-#search, input {
-  margin: 20px auto;
-  max-width: 500px;
-}
+
 
 .load, .error {
   padding: 20%;

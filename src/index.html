@@ -10,7 +10,15 @@
       <h1>Doctor Search</h1>
     </div>
     <div class="card bg-dark user-input">
+      <div class="card bg-light directions">
+        <h5>Please enter any information you would like included in your search:</h5>
+      </div>
       <form id="search-form">
+        <div class="form-group specialties">
+          <select class="form-control" id="specialty">
+            <option value="">Choose Specialty</option>
+          </select>
+        </div>
         <input id="issue" class="form-control form-control-lg" type="text" placeholder="Your Medical Issue">
         <input id="zip" class="form-control form-control-lg" type="text" pattern="[0-9]*" placeholder="Your Zip Code (5 digit)">
         <input id="fullName" class="form-control form-control-lg" type="text" placeholder="Doctor's Full Name">
