@@ -10,7 +10,7 @@ export class DoctorSearch {
 
   async getDoctorByQuery(query) {
     let location = (!query.zip) ?
-      [45.515,-122.643] :
+      [45.521,-122.678] :
       await this.apiRequest.getLocation(query.zip);
     if (!location) {
       return this.templateTool.makeZipError(query.zip);
