@@ -6,18 +6,20 @@
 
 ## Description
 
-_This site is {INFO}_
+_This site was built utilizing the Better Doctor API and zipcodeapi.com to allow users to make searches of medical providers using the following fields:_
 
-* _{DETAILS}_
+* _Provider Specialty_
+* _Medical Issue_
+* _Location (via zip code)_
+* _Doctor's name (First, Last, or Full)_
 
 _For example:_
 
 | Input:  | Output:   |
 |---|---|
-|||
-|||
+|selected specialty: Foot Surgery| A list of doctors in the Portland Area with that specialty|
 
-_{DETAILS}_
+_All searches default to Portland, OR unless the user enters a zip code_
 
 ## Setup/Installation Requirements
 
