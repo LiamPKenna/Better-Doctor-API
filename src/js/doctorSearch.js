@@ -13,13 +13,9 @@ export class DoctorSearch {
       [45.515,-122.643] :
       await this.apiRequest.getLocation(query.zip);
     if (!location) {
-      return `
-        <div class="error">
-          <h2>We're sorry! ${query.zip} is not a valid zip code! Please try again!</h2>
-        </div>
-      `;
+      return this.templateTool.makeZipError(query.zip);
     }
-    const url = `https://api.betterdoctor.com/2016-03-01/doctors?${query.docName}${query.docFirst}${query.docLast}${query.query}${query.specialty}location=${location[0]}%2C%20${location[1]}%2C100&user_location=${location[0]}%2C%20${location[1]}&${query.docGender}sort=distance-asc&skip=0&limit=50&user_key=${process.env.API_KEY}`;
+    const url = this.templateTool.makeBetterDoctorUrl(query, location);
     return this.apiRequest.getApiResponse(url)
       .then((response) => {
         const doctors = response.data;
@@ -32,18 +28,13 @@ export class DoctorSearch {
           });
           return docDetails.join('');
         } else {
-          return `
-            <div class="error">
-              <h2>No doctors were found that met your criteria. Sorry!</h2>
-            </div>
-          `;
-
+          return this.templateTool.makeNoDoctorError();
         }
       });
   }
 
   async getSpecialties() {
-    const url = `https://api.betterdoctor.com/2016-03-01/specialties?user_key=${process.env.API_KEY}`;
+    const url = this.templateTool.makeZipUrl();
     return this.apiRequest.getApiResponse(url)
       .then((response) => {
         if (!response.data) return false;
