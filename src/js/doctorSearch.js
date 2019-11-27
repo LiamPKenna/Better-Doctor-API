@@ -31,7 +31,8 @@ export class DoctorSearch {
         } else {
           return this.templateTool.makeNoDoctorError();
         }
-      });
+      })
+      .catch((error) => alert(error));
   }
 
   async getSpecialties() {
@@ -46,6 +47,7 @@ export class DoctorSearch {
           result += thisInput;
         });
         return result;
-      });
+      })
+      .catch((error) => alert(error));
   }
 }
