@@ -9,11 +9,12 @@ export class DoctorSearch {
   }
 
   async getDoctorByQuery(query) {
-    let location = (!query.zip) ?
+    const zipUrl = (query.zip) ? this.templateTool.makeZipUrl(query.zip) : false;
+    const location = (!query.zip) ?
       [45.521,-122.678] :
-      await this.apiRequest.getLocation(query.zip);
+      await this.apiRequest.getLocation(query.zip, zipUrl);
     if (!location) {
-      return this.templateTool.makeZipError(query.zip);
+      return this.templateTool.makeZipError(query.zip, this.apiRequest.zipResponseStatus);
     }
     const url = this.templateTool.makeBetterDoctorUrl(query, location);
     return this.apiRequest.getApiResponse(url)
@@ -34,7 +35,7 @@ export class DoctorSearch {
   }
 
   async getSpecialties() {
-    const url = this.templateTool.makeZipUrl();
+    const url = this.templateTool.makeSpecUrl();
     return this.apiRequest.getApiResponse(url)
       .then((response) => {
         if (!response.data) return false;
