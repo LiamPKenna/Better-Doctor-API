@@ -21,15 +21,22 @@ export class ApiRequest {
     return apiResponse;
   }
 
-  getLocation(zip) {
-    return fetch(`https://www.zipcodeapi.com/rest/${process.env.ZIP_KEY}/info.json/${zip}/degrees`)
+  getLocation(zip, url) {
+    return fetch(url)
       .then(response => {
-        return response.json();
+        const json = (response.status === 200) ? response.json() : false;
+        this.zipResponseStatus = response.status;
+        return json;
       })
       .then(json => {
-        return (json.lat) ?
-          [parseFloat(json.lat).toFixed(3),parseFloat(json.lng).toFixed(3)] :
-          false;
+        if (json && json.lat) {
+          return [
+            parseFloat(json.lat).toFixed(3),
+            parseFloat(json.lng).toFixed(3)
+          ];
+        } else {
+          return false;
+        }
       });
   }
 
