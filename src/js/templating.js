@@ -42,16 +42,17 @@ export class TemplateTool {
     `;
   }
 
-  makeZipUrl() {
+  makeSpecUrl() {
     return `
       https://api.betterdoctor.com/2016-03-01/specialties?user_key=${process.env.API_KEY}
     `;
   }
 
-  makeZipError(badZip) {
+  makeZipError(badZip, error) {
     return `
       <div class="error">
-        <h2>We're sorry! ${badZip} is not a valid zip code! Please try again!</h2>
+        <h2>We're sorry! We were unable to look up ${badZip}! Please try again!</h2>
+        <p>Error code: ${error}</p>
       </div>
     `;
   }
@@ -62,6 +63,10 @@ export class TemplateTool {
         <h2>No doctors were found that met your criteria. Sorry!</h2>
       </div>
     `;
+  }
+
+  makeZipUrl(zip) {
+    return `https://www.zipcodeapi.com/rest/${process.env.ZIP_KEY}/info.json/${zip}/degrees`;
   }
 
 }
