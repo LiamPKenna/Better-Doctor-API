@@ -36,7 +36,7 @@ _To explore the source code, feel free to browse on github or clone to your loca
 
 ## Known Bugs
 
-_No known bugs at this time._
+_Better Doctor API is no longer operational. This app is not currently usable_
 
 ## Support and contact details
 
